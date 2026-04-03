@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carte | Choisir une carte</title>
+  <meta name="description" content="Choisissez votre carte : Boire et go&ucirc;ter ou Manger. Navigation rapide mobile et QR code." />
+  <meta name="theme-color" content="#d61d2c" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="menu-selector">
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <img src="images/logo.png" alt="Logo Le Comptoir des Etuves" />
+      <span>Le Comptoir des Etuves</span>
+    </a>
+    <a class="btn btn-outline" href="index.html">Accueil</a>
+  </header>
+
+  <main class="selector-main">
+    <section class="section selector-hero">
+      <p class="kicker">QR Menu</p>
+      <h1>Choisis une carte</h1>
+    </section>
+
+    <section class="selector-card-grid">
+      <a class="selector-card" href="boire-gouter.html" aria-label="Ouvrir la carte Boire et go&ucirc;ter">
+        <figure class="selector-figure">
+          <img src="images/boisson.png" alt="Boissons et desserts" />
+          <div class="selector-gradient"></div>
+        </figure>
+        <article class="selector-copy">
+          <h2>Boire &amp; Go&ucirc;ter</h2>
+          <p>Boissons froides, boissons chaudes, boissons alcoolis&eacute;es, cr&ecirc;pes, gaufres et desserts gourmands.</p>
+        </article>
+      </a>
+
+      <a class="selector-card" href="manger.html" aria-label="Ouvrir la carte Manger">
+        <figure class="selector-figure">
+          <img src="images/sandwich.png" alt="Plats, burgers et sandwichs" />
+          <div class="selector-gradient"></div>
+        </figure>
+        <article class="selector-copy">
+          <h2>Manger</h2>
+          <p>Wraps gourmets, sandwichs chauds, burgers, salades, assiettes, extras et formules.</p>
+        </article>
+      </a>
+    </section>
+  </main>
+
+  <nav class="mobile-actions" aria-label="Actions rapides mobile">
+    <a href="boire-gouter.html">Boire</a>
+    <a href="manger.html">Manger</a>
+    <a href="tel:+33000000000">Appeler</a>
+    <a href="#">Uber Eats</a>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>

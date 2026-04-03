@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Le Comptoir des Etuves | Snack en centre-ville</title>
+  <meta name="description" content="Le Comptoir des Etuves : snack en centre-ville. Consultez la carte, trouvez l'itineraire, appelez et commandez sur Uber Eats." />
+  <meta name="theme-color" content="#d61d2c" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="home">
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Accueil Le Comptoir des Etuves">
+      <img src="images/logo.png" alt="Logo Le Comptoir des Etuves" />
+      <span>Le Comptoir des Etuves</span>
+    </a>
+    <button id="langToggle" class="lang-toggle" type="button" aria-label="Changer de langue">FR / EN</button>
+  </header>
+
+  <main>
+    <article class="panels">
+      <section class="panel panel-hero" id="hero">
+        <div class="panel-grid"></div>
+        <div class="panel-content">
+          <p class="kicker" data-i18n="heroKicker">Snack centre-ville</p>
+          <h1 data-i18n="heroTitle">Le Comptoir des Etuves</h1>
+          <p class="hero-subtitle" data-i18n="heroSubtitle">Sandwichs chauds, burgers, wraps, salades, desserts et boissons. Sur place, a emporter ou en livraison.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="carte.html" data-i18n="ctaMenu">Voir la carte</a>
+            <a class="btn btn-outline" href="#infos" data-i18n="ctaFind">Nous trouver</a>
+          </div>
+          <p class="uber-note" data-i18n="heroUber">Disponible aussi sur Uber Eats.</p>
+        </div>
+      </section>
+
+      <section class="panel panel-intro" id="presentation">
+        <div class="panel-grid"></div>
+        <div class="panel-content intro-layout">
+          <div>
+            <h2 data-i18n="introTitle">Un snack rapide, genereux et local</h2>
+            <p data-i18n="introText1">Le Comptoir des Etuves accueille habitants, passants, etudiants et salaries du quartier avec une carte variee, lisible et rapide a commander.</p>
+            <p data-i18n="introText2">Notre promesse: des recettes gourmandes, des prix clairs et une experience simple sur mobile, dans la rue comme a table via QR code.</p>
+            <ul class="pill-list">
+            </ul>
+          </div>
+          <figure class="intro-image-card" aria-label="Composition visuelle">
+            <img class="intro-image-main" id="introImage" src="images/pierre-cap-ray-1.jpg" alt="Visuel du Comptoir des Etuves" />
+            <img class="intro-image-secondary" src="images/logo.png" alt="Logo Le Comptoir des Etuves" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="panel panel-practical" id="infos">
+        <div class="panel-grid"></div>
+        <div class="panel-content">
+          <h2 data-i18n="infosTitle">Infos pratiques</h2>
+          <div class="info-grid">
+            <article class="address-block">
+              <h3>Adresse</h3>
+              <p>13 rue des Étuves</p>
+              <div class="map-embed-wrap">
+                <iframe
+                  title="Carte Google Maps Le Comptoir des Etuves"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src="https://maps.google.com/maps?width=100%25&height=230&hl=fr&q=13%20rue%20des%20%C3%89tuves&t=&z=16&ie=UTF8&iwloc=B&output=embed">
+                </iframe>
+              </div>
+              <a href="https://www.google.com/maps/search/?api=1&query=13+rue+des+Etuves" target="_blank" rel="noopener">Ouvrir l'itineraire</a>
+            </article>
+            <article>
+              <h3>Appelez-nous</h3>
+              <p><a href="tel:+33000000000">+33 0 00 00 00 00</a></p>
+            </article>
+            <article>
+              <h3>Horaires</h3>
+              <p>Lun - Dim: 11:30 - 23:00</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel panel-reviews">
+        <div class="panel-grid"></div>
+        <div class="panel-content">
+          <h2 data-i18n="reviewsTitle">Ce que disent les clients</h2>
+          <div class="review-carousel" id="reviewCarousel" aria-live="polite">
+            <div class="review-track" id="reviewCarouselTrack"></div>
+          </div>
+          <a class="btn btn-primary btn-review" href="#" aria-label="Laisser un avis sur Google">Laisser un avis</a>
+          <div class="best-sellers" id="bestSellersCarousel">
+            <h3>Nos best sellers</h3>
+            <div class="best-seller-stage" id="bestSellerStage">
+              <article class="best-seller-slide is-active" data-slide-index="0">
+                <img src="images/sandwich.png" alt="Best seller burger et sandwich chaud" />
+              </article>
+              <article class="best-seller-slide" data-slide-index="1">
+                <img src="images/boisson.png" alt="Best seller desserts et boissons" />
+              </article>
+              <article class="best-seller-slide" data-slide-index="2">
+                <img src="images/pancarte-formules-4.png" alt="Best seller formules" />
+              </article>
+            </div>
+            <div class="best-seller-nav best-seller-nav-progressive" role="tablist" aria-label="Navigation best sellers">
+              <button class="best-nav-btn is-active" type="button" data-slide-target="0">
+                <strong>Big Burger</strong>
+                <i class="best-nav-progress"></i>
+              </button>
+              <button class="best-nav-btn" type="button" data-slide-target="1">
+                <strong>Wrap Tenders</strong>
+                <i class="best-nav-progress"></i>
+              </button>
+              <button class="best-nav-btn" type="button" data-slide-target="2">
+                <strong>Formule Gourmande</strong>
+                <i class="best-nav-progress"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel panel-about">
+        <div class="panel-grid"></div>
+        <div class="panel-content">
+          <h2 data-i18n="aboutTitle">L'esprit du comptoir</h2>
+          <p data-i18n="aboutText">Le Comptoir des Etuves mise sur des recettes simples, un accueil chaleureux et une vraie regularite. Le but: bien manger vite, sans compromis sur le gout.</p>
+          <div class="owner-card">
+            <img src="images/pierre-cap-ray-1.jpg" alt="Romain, patron du Comptoir des Etuves" />
+            <p class="owner-name">Romain</p>
+            <p class="owner-note">Ravi de partager votre prochaine expérience</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel panel-uber">
+        <div class="panel-grid"></div>
+        <div class="panel-content">
+          <h2>Livraison Uber Eats</h2>
+          <div class="uber-promo">
+            <img class="uber-logo-image" src="images/uber-eats-logo.png" alt="Logo Uber Eats" />
+            <p class="uber-promo-lead" data-i18n="uberText">Tu n'es pas sur place ? Retrouve la carte et commande en livraison sur Uber Eats.</p>
+            <ul class="uber-promo-list">
+              <li>Commande rapide en quelques clics</li>
+              <li>Vos produits preferes livres a domicile</li>
+              <li>Ideal pour le dejeuner et le diner</li>
+            </ul>
+            <a class="btn btn-outline" href="#" aria-label="Aller sur Uber Eats">Commander en livraison</a>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <nav class="mobile-actions" aria-label="Actions rapides mobile">
+    <a href="carte.html">Carte</a>
+    <a href="tel:+33000000000">Appeler</a>
+    <a href="https://www.google.com/maps/search/?api=1&query=13+rue+des+Etuves" target="_blank" rel="noopener">Itineraire</a>
+    <a href="#">Uber Eats</a>
+  </nav>
+
+  <footer class="site-footer">
+    <p>Le Comptoir des Etuves - Snack centre-ville</p>
+    <a href="carte.html">Voir la carte complete</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

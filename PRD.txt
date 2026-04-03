@@ -1,0 +1,597 @@
+PRD — Site vitrine “Le Comptoir des Étuves”
+1. Résumé du projet
+Créer un site web vitrine pour Le Comptoir des Étuves, avec 2 pages principales :
+1.	une page de présentation du snack,
+2.	une page pour consulter la carte de façon claire et dynamique.
+Le site doit donner envie de venir sur place, aider le référencement local sur Google, et permettre aux clients d’accéder rapidement à la carte, y compris depuis un QR code posé sur les tables.
+Le site doit être conçu d’abord pour mobile.
+Le téléphone est le support principal.
+La version desktop est une adaptation de la version mobile, et non l’inverse.
+Nom du projet : Le Comptoir des Étuves
+________________________________________
+2. But du site
+Le site doit servir à :
+•	présenter clairement le snack,
+•	rassurer les visiteurs,
+•	montrer les informations utiles dès les premières secondes,
+•	afficher la carte de façon agréable et rapide,
+•	aider les clients à commander ou venir sur place,
+•	améliorer la visibilité sur Google,
+•	mettre en avant la disponibilité sur Uber Eats.
+Le site doit aussi favoriser les actions rapides sur mobile :
+•	voir la carte,
+•	appeler,
+•	ouvrir l’itinéraire,
+•	commander,
+•	changer la langue si besoin (automatique via google si possible ?)
+
+
+Priorité du client : visibilité / image / commandes / trafic sur place / autre : ____________________
+Action la plus importante sur mobile : voir la carte / appeler / itinéraire / Uber Eats / autre : ____________________
+________________________________________
+3. Public visé
+Le site s’adresse surtout à des personnes qui cherchent un snack en centre-ville, autour de la zone du commerce.
+Public principal
+•	habitants du centre-ville,
+•	passants,
+•	salariés du quartier,
+•	étudiants,
+•	touristes.
+Le site doit être simple à comprendre, rapide à charger, et facile à utiliser avec une seule main sur téléphone.
+Public principal à viser : ____________________
+Tranche d’âge principale : ____________________
+Langues parlées par les clients : ____________________
+Usage principal du site : avant de venir / dans la rue / à table via QR code / autre : ____________________
+________________________________________
+4. Principes de conception — Mobile by design
+Le site doit être pensé d’abord pour smartphone.
+Règles de base
+•	lecture verticale simple,
+•	peu de texte visible d’un coup,
+•	gros boutons faciles à toucher,
+•	navigation courte,
+•	temps de chargement rapide,
+•	informations utiles visibles très vite,
+•	contenu principal lisible sans zoom,
+•	pas d’animations lourdes,
+•	accès rapide à la carte et aux actions utiles.
+Priorités sur mobile
+Le visiteur doit pouvoir en quelques secondes :
+•	comprendre ce qu’est Le Comptoir des Étuves,
+•	voir où il se trouve,
+•	consulter la carte,
+•	appeler,
+•	ouvrir l’itinéraire,
+•	commander via Uber Eats si besoin.
+Boutons fixes en bas d’écran souhaités ? oui / non / à confirmer
+Niveau d’animation souhaité : faible / moyen / fort
+Style souhaité : simple / chaleureux / premium / moderne / autre : ____________________
+________________________________________
+5. Pages prévues
+Le site comprendra 2 pages :
+Page 1 — Accueil / Présentation
+Cette page doit présenter le snack, donner confiance, montrer l’emplacement, les infos pratiques et les avis.
+Page 2 — La carte
+Cette page doit permettre de choisir entre :
+•	la carte des boissons,
+•	la carte de nourriture / menu principal.
+Le choix d’aller sur la carte de boisson et la carte de nourriture doit se faire avec 2 cartes comme celles-ci :
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { ArrowBigDown, ArrowRight, ChevronRight, Heart } from 'lucide-react';
+
+function StripeCard() {
+  return (
+    <>
+      <div className='w-[90%]] h-[480px] group mx-auto dark:bg-[#252525] p-2 bg-white dark:border-0 border overflow-hidden rounded-md dark:text-white text-black '>
+        <figure className='w-full h-80 group-hover:h-72 transition-all duration-300 dark:bg-[#0a121a] bg-[#f0f5fa] p-2 rounded-md relative overflow-hidden'>
+          <div
+            style={{
+              background:
+                'linear-gradient(123.9deg, #0B65ED 1.52%, rgba(0, 0, 0, 0) 68.91%)',
+            }}
+            className='absolute top-0 left-0 w-full h-full  group-hover:opacity-100 opacity-0  transition-all duration-300'
+          ></div>
+          <Image
+            src={'/og.jpg'}
+            alt='shoes'
+            width={600}
+            height={600}
+            className='absolute -bottom-1 group-hover:-bottom-5 right-0 h-64 w-[80%] group-hover:border-4 border-4 group-hover:border-[#76aaf82d] rounded-lg object-cover transition-all duration-300'
+          />
+        </figure>
+        <article className='  p-4 space-y-2'>
+          <div className='h-8 w-20 bg-[#4393fc] rounded-md'></div>
+          <h1 className='text-xl font-semibold capitalize'>
+            Incorporate your company
+          </h1>
+          <p className='text-base leading-[120%]'>
+            Form a legal entity, issue stock, and start accepting payments.
+          </p>
+          <a
+            href='#'
+            className=' text-base dark:text-white text-blue-600 font-normal  group-hover:opacity-100 opacity-0 translate-y-2 group-hover:translate-y-0 pt-2 flex gap-1  transition-all duration-300  '
+          >
+            Learn about Atlas
+            <span>
+              <ChevronRight />
+            </span>
+          </a>
+        </article>
+      </div>
+    </>
+  );
+}
+
+export default StripeCard;
+----------------------------------------------------------------
+Ensuite, les cartes de chaque produit apparait sous forme de cette galerie (code ci dessous), les images auront le même format mais il faut qu’elles puissent être de taille différentes pour mettre en avant certains produits (variable de la taille clairement identifiable dans le code) :
+
+'use client';
+import React from 'react';
+import { motion } from 'motion/react';
+import Image from 'next/image';
+import { MoveUpRight } from 'lucide-react';
+const projects = [
+  {
+    id: '01',
+    img: 'https://images.unsplash.com/photo-1543508282-6319a3e2621f?q=80&w=1200&auto=format&fit=crop',
+    title: 'Distrokings',
+    des: 'We make your logo communicate with your customers more than words ever could',
+  },
+  {
+    id: '02',
+    img: 'https://images.unsplash.com/photo-1704677982215-a2248af6009b?q=80&w=1200&auto=format&fit=crop',
+    title: 'Profitables',
+    des: 'We are dedicated to unlocking your business potential through precision development',
+  },
+  {
+    id: '03',
+    img: 'https://images.unsplash.com/photo-1520256862855-398228c41684?q=80&w=800&auto=format&fit=crop',
+    title: 'Topserve-copiers',
+    des: 'We are dedicated to unlocking your business potential through precision development',
+  },
+  {
+    id: '04',
+    img: 'https://images.unsplash.com/photo-1605733160314-4fc7dac4bb16?q=80&w=800&auto=format&fit=crop',
+    title: 'Labramart.',
+    des: 'We specialize in crafting marketing solutions that propel your brand to new heights',
+  },
+];
+export default function ConditionGrid() {
+  return (
+    <>
+      <div className="grid grid-cols-12  gap-4 overflow-hidden px-5 lg:pb-5 pb-2">
+        {projects.map((project, index) => {
+          let colSpanClass = 'sm:col-span-6 col-span-12 ';
+          if (index === 0) {
+            colSpanClass = ' sm:col-span-5 col-span-12 ';
+          } else if (index === 1) {
+            colSpanClass = 'sm:col-span-7 col-span-12 ';
+          } else if (index === projects.length - 2) {
+            colSpanClass = 'sm:col-span-7 col-span-12 ';
+          } else if (index === projects.length - 1) {
+            colSpanClass = 'sm:col-span-5 col-span-12 ';
+          }
+          return (
+            <>
+              <motion.article
+                key={project.id ?? project.title}
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ ease: 'easeOut' }}
+                viewport={{ once: false }}
+                className={` relative  ${colSpanClass} `}
+              >
+                <div className="w-auto h-full">
+                  <Image
+                    src={project?.img}
+                    alt={'image'}
+                    height={600}
+                    width={1200}
+                    className="h-full w-full object-cover rounded-xl"
+                  />
+                </div>
+                <div className="absolute lg:bottom-2 bottom-0 text-black w-full p-4 flex justify-between items-center">
+                  <h3 className="lg:text-xl text-sm bg-black text-white rounded-xl p-2 px-4">
+                    {project.title}
+                  </h3>
+                  <div className="lg:w-12 w-10 lg:h-12 h-10 text-white grid place-content-center rounded-full bg-black">
+                    <MoveUpRight />
+                  </div>
+                </div>
+              </motion.article>
+            </>
+          );
+        })}
+      </div>
+    </>
+  );
+}
+
+Chaque carte doit être visible en HTML, filtrable, et consultable facilement depuis mobile ou QR code.
+URL souhaitée de la page d’accueil : ____________________
+URL souhaitée de la page carte : ____________________
+________________________________________
+6. Structure de la page 1 — Accueil
+La page d’accueil doit avoir 6 ou 7 sections, avec un ordre pensé pour le mobile et le SEO local.
+Section 1 — Hero
+Le haut de page doit montrer immédiatement :
+•	le nom du snack,
+•	une phrase simple qui explique le lieu,
+•	un bouton vers la carte,
+•	un bouton utile selon le besoin du client.
+Exemples de boutons :
+•	Voir la carte
+•	Commander
+•	Appeler
+•	Nous trouver
+Cette section doit être courte, claire, et utile dès le premier écran sur téléphone.
+Titre principal souhaité : ____________________
+Sous-titre souhaité : ____________________
+Bouton principal : ____________________
+Bouton secondaire : ____________________
+________________________________________
+Section 2 — Présentation claire
+Cette section doit expliquer simplement :
+•	ce que propose Le Comptoir des Étuves,
+•	ce qui le rend différent,
+•	pourquoi les clients doivent venir ici.
+Le texte doit être :
+•	court,
+•	clair,
+•	humain,
+•	local,
+•	bon pour le SEO.
+Il doit inclure naturellement :
+•	le type de lieu,
+•	la ville,
+•	le quartier si utile,
+•	l’offre principale.
+Message principal à faire passer : ____________________
+Points forts à mettre en avant : ____________________
+Ton souhaité : simple / chaleureux / premium / rapide / autre : ____________________
+________________________________________
+Section 3 — Informations pratiques
+Cette section doit afficher clairement :
+•	adresse,
+•	horaires,
+•	téléphone,
+•	moyens de paiement,
+•	sur place / à emporter / livraison,
+•	lien vers Uber Eats si besoin.
+Sur mobile, ces informations doivent être faciles à lire et à utiliser :
+•	téléphone cliquable,
+•	adresse cliquable,
+•	bouton itinéraire si utile.
+Adresse exacte : ____________________
+Téléphone : ____________________
+Horaires : ____________________
+Moyens de paiement : ____________________
+Vente à emporter : oui / non / à confirmer
+Livraison : oui / non / à confirmer
+Lien Uber Eats : ____________________
+Infos à afficher dès le haut de page : ____________________
+________________________________________
+Section 4 — Carte Google
+Cette section doit intégrer une carte Google ou proposer un accès simple à l’itinéraire.
+Objectifs :
+•	aider les clients à trouver le lieu,
+•	renforcer le référencement local,
+•	rassurer avec une vraie localisation.
+Sur mobile, il faut confirmer si l’on veut :
+•	une vraie carte intégrée,
+•	ou un bloc plus léger avec adresse + bouton “Itinéraire”.
+Adresse affichée sur Google Maps : ____________________
+Lien Google Maps / fiche établissement : ____________________
+Carte intégrée ou simple bouton “itinéraire” : ____________________
+Priorité mobile : carte intégrée / bouton itinéraire / à confirmer
+________________________________________
+Section 5 — Carrousel d’avis Google
+Cette section doit montrer des avis clients Google de façon claire et rassurante.
+Le but est de :
+•	donner confiance,
+•	renforcer la preuve sociale,
+•	améliorer le taux de clic et la conversion.
+Sur mobile, le carrousel doit rester simple, lisible et rapide.
+Nombre d’avis à afficher : ____________________
+Affichage automatique ou manuel : ____________________
+Note moyenne actuelle : ____________________
+Lien vers la fiche Google : ____________________
+________________________________________
+Section 6 — About
+Cette section doit raconter rapidement l’histoire ou l’esprit du lieu.
+Elle peut parler :
+•	de l’équipe,
+•	de la vision,
+•	de la qualité,
+•	du quartier,
+•	de l’ambiance.
+Le texte doit rester court sur mobile, avec un ton humain et crédible.
+Histoire / texte à fournir par le client : ____________________
+Photo d’équipe disponible : oui / non / à confirmer
+Ton souhaité pour cette section : ____________________
+________________________________________
+Section 7 — Mise en avant subtile de Uber Eats
+Uber Eats doit être mentionné plusieurs fois, mais de façon naturelle.
+Exemples d’endroits possibles :
+•	dans le hero,
+•	dans les informations pratiques,
+•	dans un petit bloc “Disponible sur Uber Eats”,
+•	dans le footer.
+Objectif :
+•	montrer que la commande est facile,
+•	capter les visiteurs qui ne viennent pas sur place.
+Souhaite-t-on un bouton direct vers Uber Eats ? ____________________
+Souhaite-t-on afficher le logo Uber Eats ? ____________________
+Souhaite-t-on parler de livraison partout ou seulement à certains endroits ? ____________________
+________________________________________
+7. Structure de la page 2 — La carte
+Cette page doit être pensée pour :
+•	mobile,
+•	usage rapide,
+•	consultation à table,
+•	accès par QR code,
+•	bon SEO.
+Objectif de la page
+Permettre au client de :
+•	voir rapidement les catégories,
+•	cliquer sur une carte,
+•	ouvrir une vue plus grande,
+•	lire une description complète,
+•	filtrer les produits,
+•	accéder à la page depuis un QR code.
+La page doit charger vite et être utilisable immédiatement sur smartphone.
+Nom souhaité de la page : ____________________
+Texte d’introduction de page : ____________________
+________________________________________
+7.1 Deux cartes principales
+La page doit d’abord afficher 2 grandes cartes dynamiques :
+•	Carte 1 : Boissons
+•	Carte 2 : Nourriture / Carte principale
+Ces deux cartes doivent être cliquables.
+Quand on clique sur une carte :
+•	elle devient l’élément principal de la page,
+•	elle prend environ 70 % de l’espace visible ou passe en vue détaillée pleine largeur sur mobile,
+•	elle affiche une image,
+•	elle affiche une description complète,
+•	les autres cartes sont masquées ou réduites.
+Sur mobile, la lecture doit rester simple et rapide.
+Nom exact de la carte 1 : ____________________
+Nom exact de la carte 2 : ____________________
+Texte de présentation de la carte 1 : ____________________
+Texte de présentation de la carte 2 : ____________________
+Image prévue pour chaque carte : ____________________
+Comportement mobile souhaité : vue pleine largeur / panneau / autre : ____________________
+________________________________________
+7.2 Contenu indexé en HTML
+Le contenu de la carte doit être indexable par Google.
+Cela veut dire :
+•	les produits doivent être affichés en vrai texte HTML,
+•	les titres, descriptions et prix doivent exister dans le code,
+•	il ne faut pas faire une carte seulement en image.
+Objectif :
+•	bon SEO,
+•	bon affichage mobile,
+•	meilleure lecture par Google.
+Tous les produits seront-ils fournis en texte ? oui / non / à confirmer
+Les prix seront-ils visibles ? oui / non / à confirmer
+La carte change souvent ? oui / non / à confirmer
+________________________________________
+7.3 Carte filtrable
+Le visiteur doit pouvoir filtrer la carte.
+Exemples de filtres :
+•	boissons,
+•	plats,
+•	desserts,
+•	menus,
+•	végétarien,
+•	froid / chaud,
+•	avec ou sans alcool si besoin.
+Les filtres doivent être simples à toucher sur mobile.
+Filtres souhaités : ____________________
+Catégories exactes : ____________________
+Produits mis en avant : ____________________
+________________________________________
+7.4 Vue détaillée au clic
+Quand une carte est ouverte, le visiteur doit voir :
+•	une image,
+•	un titre,
+•	une description complète,
+•	les catégories ou produits liés,
+•	un bouton retour visible,
+•	une lecture simple sur mobile.
+Le retour doit être clair et immédiat.
+Faut-il une animation à l’ouverture ? oui / non / à confirmer
+Faut-il un bouton “retour” visible ? oui / non / à confirmer
+Faut-il garder les filtres visibles dans la vue ouverte ? ____________________
+________________________________________
+7.5 Accès par QR code
+La page carte doit être accessible très facilement depuis un QR code placé sur les tables du snack.
+Objectif :
+•	consultation rapide au restaurant,
+•	meilleur usage mobile,
+•	accès direct sans passer par la page d’accueil.
+Le lien du QR code doit ouvrir directement une page utile, lisible et rapide.
+Le QR code renvoie vers :
+•	la page carte entière : ____________________
+•	ou une sous-partie précise : ____________________
+Souhaite-t-on un QR code différent par table ? oui / non / à confirmer
+Souhaite-t-on suivre le nombre de scans ? oui / non / à confirmer
+________________________________________
+8. Langues du site
+Le site doit pouvoir proposer un changement de langue.
+Points à définir :
+•	quelles langues,
+•	traduction manuelle ou automatique,
+•	comment Google verra ces versions,
+•	si les deux langues doivent être bien référencées.
+Le changement de langue doit être simple sur mobile.
+Options possibles :
+•	FR seulement,
+•	FR / EN,
+•	FR / EN / autre.
+Langue principale : ____________________
+Autres langues : ____________________
+Traduction manuelle ou automatique : ____________________
+Chaque langue aura-t-elle sa propre URL ? oui / non / à confirmer
+Le client veut-il que Google référence aussi les autres langues ? oui / non / à confirmer
+________________________________________
+9. SEO attendu
+Le site doit être pensé pour un bon référencement local.
+Le SEO doit surtout aider sur des recherches comme :
+•	snack centre-ville,
+•	snack + ville,
+•	restaurant rapide + quartier,
+•	carte snack + ville,
+•	nom de marque.
+Le site devra prévoir :
+•	des titres clairs,
+•	de bons textes,
+•	une structure simple,
+•	des pages rapides,
+•	un bon affichage mobile,
+•	une carte lisible par Google,
+•	des mentions locales,
+•	des données du commerce bien visibles,
+•	des contenus utiles et crédibles.
+Le SEO doit être intégré dans les textes, les titres, les sections, les liens et les informations pratiques.
+Ville principale à viser : ____________________
+Quartier à viser : ____________________
+Mots-clés importants du client : ____________________
+Le client a-t-il une fiche Google Business Profile ? oui / non / à confirmer
+Le client a-t-il déjà des avis Google ? oui / non / à confirmer
+________________________________________
+9.1 Règles SEO à respecter
+Le site devra idéalement inclure :
+•	un title clair par page,
+•	une meta description claire par page,
+•	un H1 unique par page,
+•	des sous-titres simples,
+•	des liens clairs entre les pages,
+•	une adresse visible,
+•	des horaires visibles,
+•	un téléphone visible,
+•	une carte en HTML,
+•	des images optimisées,
+•	un site rapide sur mobile.
+Ville exacte à citer dans les textes : ____________________
+Quartier exact à citer dans les textes : ____________________
+Nom exact du commerce à utiliser partout : ____________________
+________________________________________
+10. Contenus à fournir par le client
+Le client devra fournir tout ou partie des éléments suivants :
+•	logo,
+•	couleurs,
+•	photos du lieu,
+•	photos des produits,
+•	texte de présentation,
+•	horaires,
+•	adresse,
+•	téléphone,
+•	lien Uber Eats,
+•	lien Google Maps,
+•	avis Google,
+•	carte complète en texte,
+•	traductions si besoin.
+Logo fourni : oui / non / à confirmer
+Charte visuelle fournie : oui / non / à confirmer
+Photos fournies : oui / non / à confirmer
+Carte en texte fournie : oui / non / à confirmer
+Traductions fournies : oui / non / à confirmer
+________________________________________
+11. Contraintes techniques
+Le site doit être :
+•	rapide,
+•	simple à mettre à jour,
+•	lisible sur mobile,
+•	propre pour Google,
+•	stable.
+Il faut éviter :
+•	les pages trop lourdes,
+•	les menus compliqués,
+•	les animations gênantes,
+•	une carte uniquement en image,
+•	les éléments difficiles à utiliser au doigt.
+Points à confirmer :
+•	technologie souhaitée,
+•	système d’édition,
+•	hébergement,
+•	nom de domaine,
+•	connexion à Google,
+•	gestion des avis,
+•	intégration Uber Eats.
+Nom de domaine : ____________________
+Hébergement prévu : ____________________
+Accès Google du client disponible : oui / non / à confirmer
+Accès Uber Eats disponible : oui / non / à confirmer
+Le client veut-il pouvoir modifier la carte seul ? oui / non / à confirmer
+________________________________________
+12. Mesure et suivi
+Le site devra idéalement permettre de suivre :
+•	le trafic,
+•	les clics vers Uber Eats,
+•	les clics sur téléphone,
+•	les clics sur itinéraire,
+•	les visites de la page carte,
+•	les scans du QR code si possible,
+•	la langue choisie si utile.
+Outil de mesure souhaité : ____________________
+Suivi des clics Uber Eats : oui / non / à confirmer
+Suivi des clics téléphone : oui / non / à confirmer
+Suivi des scans QR code : oui / non / à confirmer
+Suivi des changements de langue : oui / non / à confirmer
+________________________________________
+13. Livrables attendus
+Le projet doit au minimum livrer :
+•	un site web 2 pages,
+•	une version mobile propre et prioritaire,
+•	une page accueil,
+•	une page carte,
+•	une intégration carte Google ou un accès simple à l’itinéraire,
+•	un affichage des avis Google,
+•	un changement de langue si validé,
+•	un QR code vers la page carte,
+•	une base SEO propre.
+Autres livrables souhaités : ____________________
+Le client veut-il aussi les textes rédigés ? oui / non / à confirmer
+Le client veut-il qu’on prépare les images ? oui / non / à confirmer
+________________________________________
+14. Points à valider avec le client
+Voici les sujets qui restent à éclaircir :
+1.	Le but principal du site est-il surtout l’image, le passage sur place, ou la commande ?
+Réponse : ____________________
+2.	Quelles langues doivent être disponibles ?
+Réponse : ____________________
+3.	Les autres langues doivent-elles aussi être bien référencées sur Google ?
+Réponse : ____________________
+4.	Le contenu des avis Google sera-t-il affiché automatiquement ou manuellement ?
+Réponse : ____________________
+5.	La carte change-t-elle souvent ?
+Réponse : ____________________
+6.	Le client veut-il pouvoir modifier la carte lui-même ?
+Réponse : ____________________
+7.	Quels filtres doivent exister sur la page carte ?
+Réponse : ____________________
+8.	Quelle place faut-il donner à Uber Eats ?
+Réponse : ____________________
+9.	Quelles informations pratiques doivent être visibles dès le haut de page ?
+Réponse : ____________________
+10.	Le QR code doit-il renvoyer vers la page entière ou vers une vue précise ?
+Réponse : ____________________
+11.	Quelle est la ville et quel est le quartier exact à viser pour le SEO local ?
+Réponse : ____________________
+12.	Le client a-t-il déjà tous les contenus ?
+Réponse : ____________________
+13.	Sur mobile, quelle est l’action prioritaire à mettre en avant ?
+Réponse : ____________________
+14.	Sur mobile, faut-il intégrer une vraie carte Google ou seulement un bouton itinéraire ?
+Réponse : ____________________
+15.	Sur mobile, comment doit s’ouvrir la vue détaillée de la carte ?
+Réponse : ____________________
+________________________________________
+15. Version courte du besoin
+Créer un site vitrine 2 pages pour Le Comptoir des Étuves.
+•	Page 1 : présenter le snack avec hero, présentation claire, informations pratiques, carte Google ou itinéraire, avis Google, about, et présence subtile de Uber Eats.
+•	Page 2 : afficher deux grandes cartes dynamiques cliquables, avec vue détaillée, contenu en HTML, filtres, et accès rapide par QR code.
+•	Le site doit être mobile by design, rapide, simple, localement bien référencé, et pouvoir proposer plusieurs langues selon validation client.

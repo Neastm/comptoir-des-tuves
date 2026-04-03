@@ -1,0 +1,62 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carte Manger | Le Comptoir des Etuves</title>
+  <meta name="description" content="Carte Manger : wraps, sandwichs, burgers, salades, assiettes, extras et formules. Filtrage intelligent sur mobile." />
+  <meta name="theme-color" content="#d61d2c" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="menu-category" data-menu-group="manger">
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <img src="images/logo.png" alt="Logo Le Comptoir des Etuves" />
+      <span>Le Comptoir des Etuves</span>
+    </a>
+    <a class="btn btn-outline" href="carte.html">Changer de carte</a>
+  </header>
+
+  <main class="menu-page-main">
+    <section class="section menu-headline">
+      <p class="kicker">Carte</p>
+      <h1>Manger</h1>
+      <p>Retrouve toutes les options sal&eacute;es et formules. Filtre par envie ou par produit.</p>
+    </section>
+
+    <section class="section smart-filters">
+      <div class="filters-row" id="menuFilters">
+        <button class="filter-chip is-active" data-filter="all" type="button">Tout</button>
+        <button class="filter-chip" data-filter="wraps" type="button">Wraps</button>
+        <button class="filter-chip" data-filter="sandwichs" type="button">Sandwichs</button>
+        <button class="filter-chip" data-filter="burgers" type="button">Burgers</button>
+        <button class="filter-chip" data-filter="salades" type="button">Salades</button>
+        <button class="filter-chip" data-filter="assiettes" type="button">Assiettes</button>
+        <button class="filter-chip" data-filter="extras" type="button">Extras</button>
+        <button class="filter-chip" data-filter="formules" type="button">Formules</button>
+      </div>
+      <input id="menuSearch" class="menu-search" type="search" placeholder="Filtrer intelligemment: ex. chicken, kebab, menu, cheddar..." />
+    </section>
+
+    <section class="menu-gallery-grid" id="productsGrid" aria-label="Produits manger"></section>
+  </main>
+
+  <section class="detail-modal" id="detailView" hidden aria-modal="true" role="dialog" aria-labelledby="detailTitle">
+    <div class="detail-backdrop" id="detailBackdrop"></div>
+    <article class="detail-card modal-card" id="detailContent"></article>
+    <button class="detail-close" id="closeDetail" type="button" aria-label="Fermer le d&eacute;tail">&times;</button>
+  </section>
+
+  <nav class="mobile-actions" aria-label="Actions rapides mobile">
+    <a href="carte.html">Choix</a>
+    <a href="boire-gouter.html">Boire</a>
+    <a href="tel:+33000000000">Appeler</a>
+    <a href="#">Uber Eats</a>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>
