@@ -38,7 +38,7 @@ const MENU_CATALOG = [
     title: "Boissons froides",
     description: "Carte boissons froides",
     price: "Dès 1,50 EUR",
-    image: "/boisson.png",
+    image: "images/boisson.png",
     items: [
       ["Eau", "1,50 EUR"],
       ["Soda canette 33cl", "2,00 EUR"],
@@ -56,7 +56,7 @@ const MENU_CATALOG = [
     title: "Boissons chaudes",
     description: "Café, chocolat, thé",
     price: "Dès 1,60 EUR",
-    image: "/cafe.png",
+    image: "images/cafe.png",
     items: [
       ["Café", "1,60 EUR"],
       ["Café allongé", "1,90 EUR"],
@@ -77,7 +77,7 @@ const MENU_CATALOG = [
     title: "Boissons alcoolisees",
     description: "Bières et vins",
     price: "Dès 4,00 EUR",
-    image: "/boisson.png",
+    image: "images/boisson.png",
     items: [
       ["Heineken 0.0", "4,00 EUR"],
       ["Desperados", "4,00 EUR"],
@@ -92,7 +92,7 @@ const MENU_CATALOG = [
     title: "Crêpes",
     description: "Desserts crepes",
     price: "Dès 3,90 EUR",
-    image: "/cafe.png",
+    image: "images/cafe.png",
     items: [
       ["Sucre", "3,90 EUR"],
       ["Sucre citron", "4,00 EUR"],
@@ -108,7 +108,7 @@ const MENU_CATALOG = [
     title: "Gaufres",
     description: "Desserts gaufres",
     price: "Dès 3,90 EUR",
-    image: "/cafe.png",
+    image: "images/cafe.png",
     items: [
       ["Sucre", "3,90 EUR"],
       ["Sucre citron", "4,00 EUR"],
@@ -124,7 +124,7 @@ const MENU_CATALOG = [
     title: "Desserts gourmands",
     description: "Moelleux, donuts, tartes, muffins, glace",
     price: "Dès 3,50 EUR",
-    image: "/cafe.png",
+    image: "images/cafe.png",
     items: [
       ["Moelleux chocolat", "3,50 EUR"],
       ["Moelleux citron", "3,50 EUR"],
@@ -144,7 +144,7 @@ const MENU_CATALOG = [
     title: "Wraps gourmets",
     description: "Menu frites + boisson 11,90 EUR",
     price: "Seul 7,90 EUR",
-    image: "/wrap.png",
+    image: "images/wrap.png",
     items: [
       ["Wrap tenders", "7,90 EUR"],
       ["Wrap chèvre chaud", "7,90 EUR"],
@@ -161,7 +161,7 @@ const MENU_CATALOG = [
     title: "Sandwichs chauds",
     description: "Menu frites + boisson 13,90 EUR",
     price: "Seul 9,90 EUR",
-    image: "/sandwich.png",
+    image: "images/sandwich.png",
     items: [
       ["Croustillant", "9,90 EUR"],
       ["Végétarien", "9,90 EUR"],
@@ -177,7 +177,7 @@ const MENU_CATALOG = [
     title: "Américain frites",
     description: "Menu boisson 11,00 EUR",
     price: "Seul 9,50 EUR",
-    image: "/sandwich.png",
+    image: "images/sandwich.png",
     items: [
       ["Américain steak", "9,50 EUR"],
       ["Américain poulet", "9,50 EUR"],
@@ -192,7 +192,7 @@ const MENU_CATALOG = [
     title: "Burgers",
     description: "Classiques et spéciaux",
     price: "Dès 9,90 EUR",
-    image: "/sandwich.png",
+    image: "images/sandwich.png",
     items: [
       ["Cheese burger", "9,90 EUR"],
       ["Chicken", "9,90 EUR"],
@@ -211,7 +211,7 @@ const MENU_CATALOG = [
     title: "Salades",
     description: "Prix unique 9,90 EUR",
     price: "9,90 EUR",
-    image: "/salade.png",
+    image: "images/salade.png",
     items: [
       ["Salade César", "9,90 EUR"],
       ["Salade saumon", "9,90 EUR"],
@@ -226,7 +226,7 @@ const MENU_CATALOG = [
     title: "Assiettes repas",
     description: "Prix unique 9,90 EUR",
     price: "9,90 EUR",
-    image: "/salade.png",
+    image: "images/salade.png",
     items: [
       ["Steak à cheval", "9,90 EUR"],
       ["Poulet tenders", "9,90 EUR"],
@@ -240,7 +240,7 @@ const MENU_CATALOG = [
     title: "Extras et accompagnements",
     description: "Suppléments et portions",
     price: "Dès +1,00 EUR",
-    image: "/sandwich.png",
+    image: "images/sandwich.png",
     items: [
       ["Bacon", "+1,00 EUR"],
       ["Fromage", "+1,00 EUR"],
@@ -259,7 +259,7 @@ const MENU_CATALOG = [
     title: "Les formules",
     description: "Petit dej, étudiante, midi, gourmande, gouter",
     price: "Dès 4,50 EUR",
-    image: "/sandwich.png",
+    image: "images/sandwich.png",
     items: [
       ["Formule p'tit dej", "4,90 EUR"],
       ["Formule étudiante", "10,00 EUR"],
